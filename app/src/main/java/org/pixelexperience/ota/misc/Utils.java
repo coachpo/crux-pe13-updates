@@ -200,8 +200,7 @@ public class Utils {
         Network activeNetwork = cm.getActiveNetwork();
         NetworkCapabilities networkCapabilities = cm.getNetworkCapabilities(activeNetwork);
         if (networkCapabilities != null &&
-                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
-                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
+                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
             return networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
                     || networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
                     || networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_USB)
