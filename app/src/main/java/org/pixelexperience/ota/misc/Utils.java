@@ -175,7 +175,11 @@ public class Utils {
         return String.format(Constants.MAINTAINER_URL, username);
     }
 
-    public static String getDownloadWebpageUrl(String fileName) {
+    public static String getDownloadWebpageUrl(Context context, String fileName) {
+        String configuredUrl = context.getString(R.string.config_otaChangelogUrl);
+        if (!configuredUrl.isEmpty()) {
+            return String.format(configuredUrl, SystemProperties.get(Constants.PROP_DEVICE), fileName);
+        }
         return String.format(Constants.DOWNLOAD_WEBPAGE_URL, SystemProperties.get(Constants.PROP_DEVICE), fileName);
     }
 

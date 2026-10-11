@@ -2,4 +2,6 @@
 <resources>
     <!-- Products may supply an endpoint with device and version format arguments. -->
     <string name="config_otaServerUrl" translatable="false"></string>
+    <!-- Products may supply release notes with device and filename format arguments. -->
+    <string name="config_otaChangelogUrl" translatable="false"></string>
 </resources>
