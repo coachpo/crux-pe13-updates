@@ -35,6 +35,7 @@ import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.pixelexperience.ota.R;
 import org.pixelexperience.ota.controller.UpdaterService;
 import org.pixelexperience.ota.model.MaintainerInfo;
 import org.pixelexperience.ota.model.Update;
@@ -156,7 +157,12 @@ public class Utils {
         return SystemProperties.get(Constants.PROP_BUILD_TYPE, "");
     }
 
-    public static String getServerURL() {
+    public static String getServerURL(Context context) {
+        String configuredUrl = context.getString(R.string.config_otaServerUrl);
+        if (!configuredUrl.isEmpty()) {
+            return String.format(configuredUrl, SystemProperties.get(Constants.PROP_DEVICE),
+                    SystemProperties.get(Constants.PROP_BUILD_VERSION));
+        }
         String buildType = getBuildType();
         if (buildType.equals("OFFICIAL")){
             return String.format(Constants.OTA_URL, SystemProperties.get(Constants.PROP_DEVICE), SystemProperties.get(Constants.PROP_BUILD_VERSION));

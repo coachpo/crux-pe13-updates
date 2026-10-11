@@ -20,6 +20,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.os.RecoverySystem;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -251,6 +252,7 @@ public class UpdaterController {
     private boolean verifyPackage(File file, String hash) {
         try {
             if (Utils.calculateMD5(file).equals(hash)) {
+                RecoverySystem.verifyPackage(file, null, null);
                 Log.d(TAG, "Verification successful");
                 return true;
             } else {

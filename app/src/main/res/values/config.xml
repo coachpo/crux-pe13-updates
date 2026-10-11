@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Products may supply an endpoint with device and version format arguments. -->
+    <string name="config_otaServerUrl" translatable="false"></string>
+</resources>
